@@ -3,6 +3,8 @@
     "description": "api.gouv symfony helper",
     "type": "symfony-bundle",
     "license": "MIT",
+    "version": "0.02",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Cmrweb\\AddressBundle\\": "src/"
@@ -14,7 +16,6 @@
             "email": "tykrastagames@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "symfony/flex": "^2.10",
         "symfony/http-kernel": "^7.3",
