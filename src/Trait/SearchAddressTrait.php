@@ -1,9 +1,7 @@
 <?php
-
-namespace Cmrweb\AddressBundle\Components;
+namespace Cmrweb\AddressBundle\Trait;
 
 use Cmrweb\AddressBundle\Service\ApiAddressService;
-use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveListener;
@@ -11,8 +9,7 @@ use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\ComponentToolsTrait;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
-#[AsLiveComponent()]
-final class AddressComponent
+trait SearchAddressTrait
 {
     use DefaultActionTrait;
     use ComponentToolsTrait;
@@ -22,11 +19,9 @@ final class AddressComponent
     #[LiveProp(writable: true)]
     public ?array $autocompletions = null;
 
-
-    public function __construct(
+     public function __construct(
         private readonly ApiAddressService $apiAddressService
     ) {}
-
 
     #[LiveAction]
     public function setAddressLabel()
@@ -56,5 +51,5 @@ final class AddressComponent
         $this->emit('setCurrentAddress', [
             'address' => $currentAddress 
         ]); 
-    }
+    }   
 }

@@ -3,28 +3,6 @@
     "description": "api.gouv symfony helper",
     "type": "symfony-bundle",
     "license": "MIT",
-    "keywords": ["symfony-ux"],
-     "symfony": {
-        "controllers": {
-            "slug": {
-                "main": "dist/controller.js",
-                "fetch": "eager",
-                "enabled": true,
-                "autoimport": {
-                    "@acme/feature/dist/bootstrap4-theme.css": false,
-                    "@acme/feature/dist/bootstrap5-theme.css": true
-                }
-            }
-        },
-        "importmap": {
-            "@hotwired/stimulus": "^3.0.0",
-            "slugify": "^1.6.5"
-        }
-    },
-    "peerDependencies": {
-        "@hotwired/stimulus": "^3.0.0",
-        "slugify": "^1.6.5"
-    },
     "autoload": {
         "psr-4": {
             "Cmrweb\\AddressBundle\\": "src/"

@@ -1,0 +1,12 @@
+<div {{attributes}}> 
+    <input type="text" {{ live_action('setAddressLabel', event:'input') }} data-model="addressLabel" placeholder="address">
+    <ul>
+        {% for key, completion in autocompletions %}
+        <li value="{{key}}"> 
+            <button type="button" {{live_action('selectCompletion', {key: key})}}>
+                {{completion.fulltext}}
+            </button> 
+        </li>
+        {% endfor %}
+    </ul> 
+</div>

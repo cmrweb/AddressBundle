@@ -53,7 +53,7 @@ class ApiAddressService extends AbstractApiRequest
 
     private function request(string $request, array $context): array
     {
-        return $this->get(self::ROUTES[$request], $context);
+        return $this->get(self::ROUTES[$request], $context)->toArray();
     }
  
 }

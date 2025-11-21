@@ -4,7 +4,7 @@ namespace Cmrweb\AddressBundle\Abstract;
 
 use Cmrweb\AddressBundle\Interface\ApiRequestInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpClient\CurlHttpClient;
+use Symfony\Component\HttpClient\CurlHttpClient; 
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
@@ -20,7 +20,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 
 abstract class AbstractApiRequest implements ApiRequestInterface
 { 
-    protected Serializer $serializer;
+    protected Serializer $serializer; 
 
     public function __construct(
         protected string $url,
@@ -33,22 +33,27 @@ abstract class AbstractApiRequest implements ApiRequestInterface
 
         $this->serializer = new Serializer($normalizers, [new JsonEncoder()]);
     }
-
-    public function get(string $route, array $context): array
+     
+    public function get(string $route, array $context): ResponseInterface
     {
         $request = implode('', [$this->url, $route, '?', http_build_query($context)]);
-        $response = $this->httpClient->request('GET', $request);
-        return $response->toArray();
+        return $this->exceptionHandler($this->httpClient->request('GET', $request));
     }
 
-    public function jsonRequest(string $route, array $context, ?array $authBasic = null): ResponseInterface
+    public function getCurl(string $route, array $context, ?array $authBasic = null): ResponseInterface
     {
         $requestUrl = implode('', [$this->url, $route, '?', http_build_query($context, "", null, PHP_QUERY_RFC3986)]);
         $curlCLient = new CurlHttpClient();
-        $response = $curlCLient->request('GET', $requestUrl, [
-            'auth_basic' => $authBasic,  
-            // 'query' => $context
-        ]);   
+        return $this->exceptionHandler($curlCLient->request('GET', $requestUrl, [
+            'auth_basic' => $authBasic
+        ]));    
+    }
+
+    private function exceptionHandler(ResponseInterface $response): string|ResponseInterface
+    {
+        if(200 !== $response->getStatusCode()) {
+            return 'invalid request';
+        }  
         return $response;
     }
 }
