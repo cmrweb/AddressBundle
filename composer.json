@@ -32,11 +32,14 @@
         "symfony/twig-bundle": "^7.3",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "symfony/yaml": "^7.3"
+        "symfony/yaml": "^7.3",
+        "symfony/console": "*",
+        "symfony/runtime": "^7.3"
     },
     "config": {
         "allow-plugins": {
-            "symfony/flex": true
+            "symfony/flex": true,
+            "symfony/runtime": true
         }
     },
     "require-dev": {

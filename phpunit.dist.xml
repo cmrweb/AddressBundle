@@ -42,8 +42,8 @@
 
     <extensions>
         <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension">
-            <parameter name="clock-mock-namespaces" value="App" />
-            <parameter name="dns-mock-namespaces" value="App" />
+            <parameter name="clock-mock-namespaces" value="Cmrweb\AddressBundle" />
+            <parameter name="dns-mock-namespaces" value="Cmrweb\AddressBundle" />
         </bootstrap>
     </extensions>
 </phpunit>
