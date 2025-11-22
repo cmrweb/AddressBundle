@@ -41,15 +41,5 @@ trait SearchAddressTrait
         $this->emit('setCurrentAddress', [
             'address' => $currentAddress
         ]); 
-    }
-
-    #[LiveListener('setAddressFromEntreprise')]
-    public function setAddressFromEntreprise(#[LiveArg('address')]?string $address)
-    { 
-        $this->addressLabel = $address;
-        $currentAddress = $this->apiAddressService->search($address);
-        $this->emit('setCurrentAddress', [
-            'address' => $currentAddress 
-        ]); 
-    }   
+    } 
 }
