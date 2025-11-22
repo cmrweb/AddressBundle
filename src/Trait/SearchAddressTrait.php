@@ -28,6 +28,8 @@ trait SearchAddressTrait
     {
         if (strlen($this->addressLabel) > 7) {
             $this->autocompletions = $this->apiAddressService->autocomplete($this->addressLabel);
+        } else {
+            $this->autocompletions = null;
         }
     }
 
