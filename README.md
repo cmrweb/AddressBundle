@@ -37,6 +37,29 @@ return [
 ];
 ```
 
+### Config
+
+.env
+
+```env
+    ###> cmrweb/address-bundle ###
+    API_ADDRESS="https://data.geopf.fr/"
+    ###< cmrweb/address-bundle ###
+```
+
+config/services.yaml
+
+```yaml
+    parameters:
+        # ...
+        cmrweb.api.address: '%env(API_ADDRESS)%'
+    services:
+        # ...
+        Cmrweb\AddressBundle\Service\ApiAddressService:
+                arguments:
+                    $url: '%cmrweb.api.address%'
+```
+
 ### Usage
 
 Make Symfony live-component
@@ -80,3 +103,4 @@ Reponse is return with AddressFormTrait
     # return Address to array
     dd($this->getAddress(), $this->currentAddress);
 ```
+
