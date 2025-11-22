@@ -84,7 +84,7 @@ Edit your component.html.twig
 <!-- without css -->
 <div {{attributes}}> 
     <input type="text" placeholder="address" autocomplete="false" spellcheck="false"
-    {{ live_action('setAddressLabel', event:'input') }} data-model="addressLabel">
+    {{ live_action('setAddressLabel', {event:'input', debounce: 1000}) }} data-model="addressLabel">
     <ul>
         {% for key, completion in autocompletions %}
         <li> 
