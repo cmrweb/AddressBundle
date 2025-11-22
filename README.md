@@ -132,7 +132,7 @@ $this->getAddressArray()
 ```
 
 ```html
-{{ dump(currentAddress) }}
+{{ dump(address) }}
 ```
 
 Address Model

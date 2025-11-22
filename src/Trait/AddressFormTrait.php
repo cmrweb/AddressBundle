@@ -10,24 +10,24 @@ use Symfony\UX\LiveComponent\Attribute\LiveProp;
 trait AddressFormTrait
 {
     #[LiveProp(writable: true)]
-    public ?Address $currentAddress = null;
+    public ?Address $address = null;
 
     #[LiveListener('setCurrentAddress')]
     public function setCurrentAddress(#[LiveArg('address')] ?array $address): void
     {
         if(null !== $address) {
-            $this->currentAddress = Address::fromArray($address);
+            $this->address = Address::fromArray($address);
         }
     } 
 
     public function getAddress(): ?Address
     {
-        return $this->currentAddress;
+        return $this->address;
     }
 
     public function getAddressArray(): array
     {
-        return $this->currentAddress?->toArray();
+        return $this->address?->toArray();
     }
 
     private function flashAddressError(): void
