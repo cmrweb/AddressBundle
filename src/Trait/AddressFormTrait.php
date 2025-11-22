@@ -15,7 +15,9 @@ trait AddressFormTrait
     #[LiveListener('setCurrentAddress')]
     public function setCurrentAddress(#[LiveArg('address')] ?array $address): void
     {
-        $this->currentAddress = Address::fromArray($address);
+        if(null !== $address) {
+            $this->currentAddress = Address::fromArray($address);
+        }
     } 
 
     public function getAddress(): ?Address
