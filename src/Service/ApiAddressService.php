@@ -2,6 +2,7 @@
 namespace Cmrweb\AddressBundle\Service;
  
 use Cmrweb\AddressBundle\Abstract\AbstractApiRequest;
+use Cmrweb\AddressBundle\Model\Address;
 
 class ApiAddressService extends AbstractApiRequest
 { 
@@ -22,7 +23,7 @@ class ApiAddressService extends AbstractApiRequest
         return $request['results'] ?? null;
     }
 
-    public function search(string $fulltext): ?array
+    public function search(string $fulltext): ?Address
     {
         $request = $this->request(self::SEARCH, [
             'q' => $fulltext,
@@ -31,7 +32,8 @@ class ApiAddressService extends AbstractApiRequest
         if(!isset($request['features'])) {
             return null;
         }
-        return $this->formatFeaturesAddress(reset($request['features']));
+        $data = $this->formatFeaturesAddress(reset($request['features']));
+        return Address::fromArray($data);
     }
 
     private function formatFeaturesAddress(array $features): array

@@ -1,8 +1,9 @@
 <div {{attributes}}> 
-    <input type="text" {{ live_action('setAddressLabel', event:'input') }} data-model="addressLabel" placeholder="address">
+    <input type="text" placeholder="address" autocomplete="false" spellcheck="false"
+    {{ live_action('setAddressLabel', event:'input') }} data-model="addressLabel">
     <ul>
         {% for key, completion in autocompletions %}
-        <li value="{{key}}"> 
+        <li> 
             <button type="button" {{live_action('selectCompletion', {key: key})}}>
                 {{completion.fulltext}}
             </button> 

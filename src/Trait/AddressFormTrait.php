@@ -2,6 +2,7 @@
 
 namespace Cmrweb\AddressBundle\Trait;
 
+use Cmrweb\AddressBundle\Model\Address;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveListener;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -9,17 +10,22 @@ use Symfony\UX\LiveComponent\Attribute\LiveProp;
 trait AddressFormTrait
 {
     #[LiveProp(writable: true)]
-    public ?array $currentAddress = null;
+    public ?Address $currentAddress = null;
 
     #[LiveListener('setCurrentAddress')]
-    public function setCurrentAddress(#[LiveArg('address')] ?array $address): void
+    public function setCurrentAddress(#[LiveArg('address')] ?Address $address): void
     {
         $this->currentAddress = $address;
     } 
 
-    public function getAddress(): ?array
+    public function getAddress(): ?Address
     {
         return $this->currentAddress;
+    }
+
+    public function getAddressArray(): array
+    {
+        return $this->currentAddress?->toArray();
     }
 
     private function flashAddressError(): void
