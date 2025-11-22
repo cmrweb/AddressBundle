@@ -1,7 +1,7 @@
 <?php
 namespace Cmrweb\AddressBundle\Service;
  
-use Cmrweb\AddressBundle\Abstract\AbstractApiRequest;
+use Cmrweb\RequestBundle\AbstractApiRequest;
 
 class ApiAddressService extends AbstractApiRequest
 { 

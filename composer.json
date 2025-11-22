@@ -34,7 +34,8 @@
         "twig/twig": "^2.12|^3.0",
         "symfony/yaml": "^7.3",
         "symfony/console": "^7.3",
-        "symfony/runtime": "^7.3"
+        "symfony/runtime": "^7.3",
+        "cmrweb/request-bundle": "^0.01.0"
     },
     "config": {
         "allow-plugins": {

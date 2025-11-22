@@ -6,5 +6,6 @@ return [
     Symfony\UX\LiveComponent\LiveComponentBundle::class => ['all' => true],
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
-    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true], 
+    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Cmrweb\RequestBundle\RequestBundle::class => ['all' => true],
 ];

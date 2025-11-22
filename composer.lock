@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62ae7f444f9174120b48b2ae3822b4fc",
+    "content-hash": "9abb790b36ee4e937ae1393baa894901",
     "packages": [
+        {
+            "name": "cmrweb/request-bundle",
+            "version": "0.01",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cmrweb/RequestBundle.git",
+                "reference": "5b8cf27064af05b2d7a71adeabb7d0c545212066"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cmrweb/RequestBundle/zipball/5b8cf27064af05b2d7a71adeabb7d0c545212066",
+                "reference": "5b8cf27064af05b2d7a71adeabb7d0c545212066",
+                "shasum": ""
+            },
+            "require": {
+                "phpdocumentor/reflection-docblock": "^5.6",
+                "phpstan/phpdoc-parser": "^2.3",
+                "symfony/flex": "^2.10",
+                "symfony/framework-bundle": "^7.3",
+                "symfony/http-client": "^7.3",
+                "symfony/property-access": "^7.3",
+                "symfony/property-info": "^7.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Cmrweb\\RequestBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "cmrweb",
+                    "email": "tykrastagames@gmail.com"
+                }
+            ],
+            "description": "Symfony request hepler bundle",
+            "support": {
+                "issues": "https://github.com/cmrweb/RequestBundle/issues",
+                "source": "https://github.com/cmrweb/RequestBundle/tree/0.01"
+            },
+            "time": "2025-11-22T13:00:49+00:00"
+        },
         {
             "name": "composer/semver",
             "version": "3.4.4",
