@@ -17,6 +17,11 @@ trait AddressFormTrait
         $this->currentAddress = $address;
     } 
 
+    public function getAddress(): ?array
+    {
+        return $this->currentAddress;
+    }
+
     private function flashAddressError(): void
     {
         $this->addFlash('danger', 'Veuillez reseigner une adresse!'); 

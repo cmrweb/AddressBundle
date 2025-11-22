@@ -36,3 +36,47 @@ return [
     Cmrweb\AddressBundle\AddressBundle::class => ['all' => true],
 ];
 ```
+
+### Usage
+
+Make Symfony live-component
+
+```console
+symfony console make:twig-component --live
+```
+
+Use SearchAddressTrait in your component
+
+```php 
+    // ...
+    use DefaultActionTrait;
+    use SearchAddressTrait;
+```
+
+Edit your component.html.twig
+
+```html
+<div {{attributes}}> 
+    <input type="text" {{ live_action('setAddressLabel', event:'input') }} data-model="addressLabel" placeholder="address">
+    <ul>
+        {% for key, completion in autocompletions %}
+        <li value="{{key}}"> 
+            <button type="button" {{live_action('selectCompletion', {key: key})}}>
+                {{completion.fulltext}}
+            </button> 
+        </li>
+        {% endfor %}
+    </ul> 
+</div>
+```
+
+Reponse is return with AddressFormTrait
+
+```php
+    // ...
+    use DefaultActionTrait;
+    use AddressFormTrait;
+    // ...
+    # return Address to array
+    dd($this->getAddress(), $this->currentAddress);
+```
