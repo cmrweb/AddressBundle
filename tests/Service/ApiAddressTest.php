@@ -1,7 +1,6 @@
 <?php
 namespace Cmrweb\AddressBundle\Tests\Service;
 
-use Cmrweb\AddressBundle\Model\Address;
 use Cmrweb\AddressBundle\Service\ApiAddressService;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -18,7 +17,7 @@ class ApiAddressTest extends KernelTestCase
         $address = $apiAddress->search($response[0]['fulltext']);
     
         $this->assertNotNull($address);
-        $this->assertInstanceOf(Address::class, $address); 
+        $this->assertIsArray($address); 
 
         restore_exception_handler();
     }

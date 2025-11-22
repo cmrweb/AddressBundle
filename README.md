@@ -117,11 +117,11 @@ Edit your component.html.twig
 
 ## Get Address
 
-Return Address Model with AddressFormTrait in same or other component.
+Return Address Model with AddressTrait in same or other component.
 
 ```php
 // ...
-use AddressFormTrait;
+use AddressTrait;
 // ...
 
 # return Address Model
@@ -131,8 +131,11 @@ $this->getAddress()
 $this->getAddressArray()
 ```
 
+Twig
+
 ```html
 {{ dump(address) }}
+{{ dump(addressArray) }}
 ```
 
 Address Model

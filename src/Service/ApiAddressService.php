@@ -15,7 +15,7 @@ class ApiAddressService extends AbstractApiRequest
     
     public function autocomplete(string $term): ?array
     {
-        $request = $this->request(self::AUTOCOMPLETE, [
+        $request = $this->apiRequest(self::AUTOCOMPLETE, [
             'text' => $term,
             'type' => 'StreetAddress'
         ]);
@@ -24,7 +24,7 @@ class ApiAddressService extends AbstractApiRequest
 
     public function search(string $fulltext): ?array
     {
-        $request = $this->request(self::SEARCH, [
+        $request = $this->apiRequest(self::SEARCH, [
             'q' => $fulltext,
             'limit' => 1
         ]);
@@ -51,9 +51,9 @@ class ApiAddressService extends AbstractApiRequest
         ]; 
     }
 
-    private function request(string $request, array $context): array
+    protected function apiRequest(string $request, ?array $context = null): array
     {
-        return $this->get(self::ROUTES[$request], $context)->toArray();
+        return $this->get(self::ROUTES[$request], $context)->getData();
     }
  
 }

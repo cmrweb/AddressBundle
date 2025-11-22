@@ -7,15 +7,18 @@ use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveListener;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
-trait AddressFormTrait
+trait AddressTrait
 {
     #[LiveProp(writable: true)]
     public ?Address $address = null;
+    #[LiveProp(writable: true)]
+    public ?array $addressArray = null;
 
     #[LiveListener('setCurrentAddress')]
     public function setCurrentAddress(#[LiveArg('address')] ?array $address): void
     {
         if(null !== $address) {
+            $this->addressArray = $address;
             $this->address = Address::fromArray($address);
         }
     } 
@@ -25,9 +28,9 @@ trait AddressFormTrait
         return $this->address;
     }
 
-    public function getAddressArray(): array
+    public function getAddressArray(): ?array
     {
-        return $this->address?->toArray();
+        return $this->addressArray;
     }
 
     private function flashAddressError(): void
