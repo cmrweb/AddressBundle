@@ -15,14 +15,16 @@ class AddressBundle extends Bundle
     {
         return \dirname(__DIR__);
     }
+    
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new XmlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../../config')
         );
-        $loader->load('services.xml');
+        $loader->load('services.yaml'); 
     }
+    
     public function prependExtension(ContainerConfigurator $configurator, ContainerBuilder $container): void
     {
         if (!$this->isAssetMapperAvailable($container)) {
