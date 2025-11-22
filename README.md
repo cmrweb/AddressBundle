@@ -150,8 +150,6 @@ public function getCodePostal(): string;
 public function getVille(): string;
 public function getRegion(): string;
 public function getLat(): float;
-public function getLon(): float;
-# return string "lat,lon"
-public function getPosition(): string;
+public function getLon(): float; 
 ```
 

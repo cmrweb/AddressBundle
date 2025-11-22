@@ -3,14 +3,14 @@ namespace Cmrweb\AddressBundle\Model;
 
 class Address
 {
-    private string $label;
-    private string $numero;
-    private string $libelle;
-    private string $codePostal;
-    private string $ville;
-    private string $region;
-    private float $lat;
-    private float $lon;
+    public string $label;
+    public string $numero;
+    public string $libelle;
+    public string $codePostal;
+    public string $ville;
+    public string $region;
+    public float $lat;
+    public float $lon;
 
     public function getLabel(): string { return $this->label; }
     public function getNumero(): string { return $this->numero; }
@@ -19,8 +19,7 @@ class Address
     public function getVille(): string { return $this->ville; }
     public function getRegion(): string { return $this->region; }
     public function getLat(): float { return $this->lat; }
-    public function getLon(): float { return $this->lon; }
-    public function getPosition(): string { return $this->lat . ',' .$this->lon; }
+    public function getLon(): float { return $this->lon; } 
 
     public static function fromArray(array $data): self
     {
