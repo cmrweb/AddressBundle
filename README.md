@@ -82,7 +82,7 @@ Edit your component.html.twig
 
 ```html
 <!-- without css -->
-<div {{attributes}}> 
+<div {{attributes}} data-loading="addClass(opacity-80) addAttribute(disabled)"> 
     <input type="text" placeholder="address" autocomplete="false" spellcheck="false"
     {{ live_action('setAddressLabel', {event:'input', debounce: 1000}) }} data-model="addressLabel">
     <ul>
@@ -99,7 +99,7 @@ Edit your component.html.twig
 
 ```html
 <!-- bootstrap -->
-<div {{attributes}} class="input-goup">
+<div {{attributes}} data-loading="addClass(opacity-80) addAttribute(disabled)"  class="input-goup">
     <input type="text" placeholder="address" class="form-control" autocomplete="false" spellcheck="false"
         {{ live_action('setAddressLabel', {event:'input', debounce: 1000}) }} data-model="addressLabel">
 

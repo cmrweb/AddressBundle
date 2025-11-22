@@ -1,4 +1,4 @@
-<div {{attributes}}> 
+<div {{attributes}} data-loading="addClass(opacity-80) addAttribute(disabled)" > 
     <input type="text" placeholder="address" autocomplete="false" spellcheck="false"
     {{ live_action('setAddressLabel', event:'input') }} data-model="addressLabel">
     <ul>
