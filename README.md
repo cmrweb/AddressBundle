@@ -39,6 +39,8 @@ return [
 
 ### Config
 
+[Cmrweb/RequestBundle](https://github.com/cmrweb/RequestBundle)
+
 .env
 
 ```env
