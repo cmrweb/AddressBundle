@@ -131,6 +131,10 @@ $this->getAddress()
 $this->getAddressArray()
 ```
 
+```html
+{{ dump(currentAddress) }}
+```
+
 Address Model
 
 ```php
