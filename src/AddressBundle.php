@@ -15,22 +15,20 @@ class AddressBundle extends Bundle
     {
         return \dirname(__DIR__);
     }
-    
-    public function load(array $configs, ContainerBuilder $container): void
-    {
-        $loader = new XmlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../../config')
-        );
-        $loader->load('services.yaml'); 
-    }
-    
+     
     public function prependExtension(ContainerConfigurator $configurator, ContainerBuilder $container): void
     {
         if (!$this->isAssetMapperAvailable($container)) {
             return;
-        }
-
+        } 
+        $container->prependExtensionConfig('twig_component', [
+            'defaults' => [
+                'Cmrweb\AddressBundle\Components\\' => [
+                    'template_directory' => '@Address/components/',
+                    'name_prefix' => 'Address',
+                ],
+            ],
+        ]); 
         $container->prependExtensionConfig('framework', [
             'asset_mapper' => [
                 'paths' => [
