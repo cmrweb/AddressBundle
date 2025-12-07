@@ -5,16 +5,11 @@ namespace Cmrweb\AddressBundle\Maker;
 use Symfony\Bundle\MakerBundle\ConsoleStyle;
 use Symfony\Bundle\MakerBundle\DependencyBuilder;
 use Symfony\Bundle\MakerBundle\Exception\RuntimeCommandException;
-use Symfony\Bundle\MakerBundle\FileManager;
 use Symfony\Bundle\MakerBundle\Generator;
 use Symfony\Bundle\MakerBundle\InputConfiguration;
 use Symfony\Bundle\MakerBundle\Maker\AbstractMaker;
-use Symfony\Bundle\MakerBundle\MakerInterface;
-use Symfony\Bundle\MakerBundle\Str;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
@@ -44,12 +39,11 @@ class AddressComponentCommand  extends AbstractMaker
 
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
-        $name = "Address";
+        $name = '\\'.$this->namespace."SearchAddress";
 
         if (!class_exists(AsLiveComponent::class)) {
             throw new \RuntimeException('You must install symfony/ux-live-component to create a Live component (composer require symfony/ux-live-component)');
-        }
-
+        } 
         $factory = $generator->createClassNameDetails(
             $name,
             str_replace($generator->getRootNamespace().'\\', '', $this->namespace),
