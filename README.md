@@ -47,7 +47,11 @@ return [
 Make search address component
 
 ```console
+// without css
 symfony console make:address
+
+// bootstrap 5 classes
+symfony console make:address -b
 ```
 
 ```html
