@@ -10,6 +10,7 @@ use Symfony\Bundle\MakerBundle\InputConfiguration;
 use Symfony\Bundle\MakerBundle\Maker\AbstractMaker;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
@@ -34,12 +35,14 @@ class AddressComponentCommand  extends AbstractMaker
     {
         $command
             ->setDescription(self::getCommandDescription()) 
+            ->addOption('bootstrap', 'b', InputOption::VALUE_NONE, 'generate bootstrap5 template')
         ;
     }
 
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
         $name = '\\'.$this->namespace."SearchAddress";
+        $bootstrap = $input->getOption('bootstrap');
 
         if (!class_exists(AsLiveComponent::class)) {
             throw new \RuntimeException('You must install symfony/ux-live-component to create a Live component (composer require symfony/ux-live-component)');
@@ -58,7 +61,7 @@ class AddressComponentCommand  extends AbstractMaker
         );
         $generator->generateTemplate(
             "components/{$templatePath}.html.twig",
-            \sprintf('%s/templates/twig/%s', \dirname(__DIR__, 2), 'component_template.tpl.php')
+            \sprintf('%s/templates/twig/%s', \dirname(__DIR__, 2), $bootstrap ? 'component_template.bootstrap.tpl.php' : 'component_template.tpl.php')
         );
 
         $generator->writeChanges();
