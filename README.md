@@ -40,24 +40,18 @@ return [
 ];
 ```
 
-### Config
-
-[Cmrweb/RequestBundle](https://github.com/cmrweb/RequestBundle)
-
-
-```yaml
-// config/services.yaml
-    Cmrweb\AddressBundle\Maker\AddressComponentCommand:
-        tags: ['maker.command']
-```
-
 ### Usage 
 
 ## Display autocompletion input
+
 Make search address component
 
 ```console
 symfony console make:address
+```
+
+```html
+<twig:SearchAddress />
 ```
  
 ## Get Address
