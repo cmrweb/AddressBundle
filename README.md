@@ -44,82 +44,22 @@ return [
 
 [Cmrweb/RequestBundle](https://github.com/cmrweb/RequestBundle)
 
-.env
-
-```env
-###> cmrweb/address-bundle ###
-API_ADDRESS="https://data.geopf.fr/"
-###< cmrweb/address-bundle ###
-```
-
-config/services.yaml
 
 ```yaml
-parameters:
-    # ...
-    cmrweb.api.address: '%env(API_ADDRESS)%'
-services:
-    # ...
-    Cmrweb\AddressBundle\Service\ApiAddressService:
-            arguments:
-                $url: '%cmrweb.api.address%'
+// config/services.yaml
+    Cmrweb\AddressBundle\Maker\AddressComponentCommand:
+        tags: ['maker.command']
 ```
 
 ### Usage 
 
 ## Display autocompletion input
-
-Make Symfony live-component
+Make search address component
 
 ```console
-symfony console make:twig-component --live
+symfony console make:address
 ```
-
-Use SearchAddressTrait in your component
-
-```php 
-// ...
-use DefaultActionTrait;
-use SearchAddressTrait;
-```
-
-Edit your component.html.twig
-
-```html
-<!-- without css -->
-<div {{attributes}} data-loading="addClass(opacity-80) addAttribute(disabled)"> 
-    <input type="text" placeholder="address" autocomplete="false" spellcheck="false"
-    {{ live_action('setAddressLabel', {event:'input', debounce: 1000}) }} data-model="addressLabel">
-    <ul>
-        {% for key, completion in autocompletions %}
-        <li> 
-            <button type="button" {{live_action('selectCompletion', {key: key})}}>
-                {{completion.fulltext}}
-            </button> 
-        </li>
-        {% endfor %}
-    </ul> 
-</div>
-```
-
-```html
-<!-- bootstrap -->
-<div {{attributes}} data-loading="addClass(opacity-80) addAttribute(disabled)"  class="input-goup">
-    <input type="text" placeholder="address" class="form-control" autocomplete="false" spellcheck="false"
-        {{ live_action('setAddressLabel', {event:'input', debounce: 1000}) }} data-model="addressLabel">
-
-    <ul class="list-group">
-        {% for key, completion in autocompletions %}
-        <li class="list-group-item">
-            <button type="button" {{live_action('selectCompletion', {key: key})}} class="btn border-0 w-100 text-start">
-                {{completion.fulltext}}
-            </button>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-```
-
+ 
 ## Get Address
 
 Return Address Model with AddressTrait in same or other component.

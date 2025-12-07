@@ -2,9 +2,12 @@
 namespace Cmrweb\AddressBundle\Service;
  
 use Cmrweb\RequestBundle\AbstractApiRequest;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class ApiAddressService extends AbstractApiRequest
 { 
+    private const string URL = "https://data.geopf.fr/";
     private const string AUTOCOMPLETE = 'autocomplete';
     private const string SEARCH = 'search';
 
@@ -13,6 +16,11 @@ class ApiAddressService extends AbstractApiRequest
         self::SEARCH => '/geocodage/search'
     ]; 
     
+    public function __construct(HttpClientInterface $httpClient, ParameterBagInterface $param)
+    {
+        parent::__construct(self::URL, $httpClient, $param);
+    }
+
     public function autocomplete(string $term): ?array
     {
         $request = $this->apiRequest(self::AUTOCOMPLETE, [
