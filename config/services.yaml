@@ -22,4 +22,6 @@ services:
     Cmrweb\AddressBundle\Service\ApiAddressService:
         arguments:
             $url: '%cmrweb.api.address%'
-        public: true
+        public: true 
+    Cmrweb\AddressBundle\Maker\AddressComponentCommand:
+        tags: ['maker.command']
