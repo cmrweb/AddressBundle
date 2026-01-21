@@ -35,7 +35,7 @@
         "symfony/yaml": "^8.0",
         "symfony/console": "^8.0",
         "symfony/runtime": "^8.0",
-        "cmrweb/request-bundle": "^0.03"
+        "cmrweb/request-bundle": "0.04"
     },
     "config": {
         "allow-plugins": {

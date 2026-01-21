@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce03d77a6aae86de1f82ec28b8b1a3e7",
+    "content-hash": "6ca9917bc0ec75b975f7f534c59f061c",
     "packages": [
         {
             "name": "cmrweb/request-bundle",
-            "version": "0.03",
+            "version": "0.04",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cmrweb/RequestBundle.git",
-                "reference": "a595bc850e8a988571602615d39e6c8484e451b2"
+                "reference": "6bd8d9d354c36c1b64ce28008c4d93db8869cc8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cmrweb/RequestBundle/zipball/a595bc850e8a988571602615d39e6c8484e451b2",
-                "reference": "a595bc850e8a988571602615d39e6c8484e451b2",
+                "url": "https://api.github.com/repos/cmrweb/RequestBundle/zipball/6bd8d9d354c36c1b64ce28008c4d93db8869cc8a",
+                "reference": "6bd8d9d354c36c1b64ce28008c4d93db8869cc8a",
                 "shasum": ""
             },
             "require": {
@@ -48,9 +48,9 @@
             "description": "Symfony request hepler bundle",
             "support": {
                 "issues": "https://github.com/cmrweb/RequestBundle/issues",
-                "source": "https://github.com/cmrweb/RequestBundle/tree/0.03"
+                "source": "https://github.com/cmrweb/RequestBundle/tree/0.04"
             },
-            "time": "2025-12-06T20:32:41+00:00"
+            "time": "2026-01-11T11:17:13+00:00"
         },
         {
             "name": "composer/semver",

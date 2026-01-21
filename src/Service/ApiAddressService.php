@@ -53,7 +53,7 @@ class ApiAddressService extends AbstractApiRequest
         ]; 
     }
 
-    protected function apiRequest(string $request, ?array $context = null): array
+    protected function apiRequest(string $request, ?array $context = null): mixed
     {
         return $this->get(self::ROUTES[$request], $context)->getData();
     }
